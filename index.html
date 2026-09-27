@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skillora – Platform Kesiapan Karier untuk Mahasiswa</title>
+  <meta name="description" content="Skillora membantu mahasiswa menilai kesiapan karier secara objektif: eksplorasi posisi, analisis CV, skill gap, roadmap belajar, dan rekomendasi kursus terpersonalisasi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <polygon points="15,3 27,22 3,22" fill="url(#lg1)" opacity="0.85"/>
+          <polygon points="15,11 23,22 7,22" fill="url(#lg2)"/>
+          <defs>
+            <linearGradient id="lg1" x1="3" y1="3" x2="27" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#06B6D4"/><stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+            <linearGradient id="lg2" x1="7" y1="11" x2="23" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7C3AED"/><stop offset="1" stop-color="#0EA5E9"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="logo-text">Skillora</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Menu Utama</div>
+      <a href="#" class="nav-item active" data-page="dashboard">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="nav-item" data-page="career-explore">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+        Eksplorasi Karier
+        <span class="nav-badge">F01</span>
+      </a>
+      <a href="#" class="nav-item" data-page="profile-match">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        Profile Matching
+        <span class="nav-badge">F02</span>
+      </a>
+      <a href="#" class="nav-item" data-page="cv-upload">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+        Upload CV
+        <span class="nav-badge">F03</span>
+      </a>
+      <a href="#" class="nav-item" data-page="skill-gap">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+        Analisis Skill Gap
+        <span class="nav-badge">F04</span>
+      </a>
+      <a href="#" class="nav-item" data-page="roadmap">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+        Roadmap Belajar
+        <span class="nav-badge">F05</span>
+      </a>
+      <a href="#" class="nav-item" data-page="courses">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>
+        Rekomendasi Kursus
+        <span class="nav-badge">F06</span>
+      </a>
+    </nav>
+    <div class="sidebar-profile">
+      <div class="profile-avatar">M</div>
+      <div class="profile-info">
+        <div class="profile-name">Mahasiswa</div>
+        <div class="profile-sub">Semester 5 &bull; ITB</div>
+      </div>
+    </div>
+  </aside>
+
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleSidebar()">&#9776;</button>
+
+  <main class="main-content" id="mainContent">
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Halo, Selamat Datang! &#128075;</h1>
+          <p class="page-subtitle">Pantau perjalanan kesiapan kariermu dari satu tempat.</p>
+        </div>
+        <button class="btn btn-primary" onclick="navigateTo('cv-upload')">&#128196; Upload CV</button>
+      </div>
+
+      <div class="dashboard-hero">
+        <div class="score-card-main">
+          <div class="score-header">Career Readiness Score</div>
+          <div class="score-visual">
+            <svg class="donut-chart" viewBox="0 0 120 120">
+              <circle class="donut-bg" cx="60" cy="60" r="48"/>
+              <circle class="donut-fill" cx="60" cy="60" r="48" id="donutFill"
+                stroke-dasharray="204 97" stroke-dashoffset="51"/>
+            </svg>
+            <div class="score-center">
+              <div class="score-pct">68%</div>
+              <div class="score-tier">Cukup Siap</div>
+            </div>
+          </div>
+          <div class="score-target">Target: <strong>Data Analyst</strong></div>
+          <div class="score-badges-row">
+            <span class="sbadge found">&#10003; 8 Found</span>
+            <span class="sbadge developing">&#126; 4 Developing</span>
+            <span class="sbadge missing">&#10007; 3 Not Found</span>
+          </div>
+        </div>
+        <div class="dashboard-right">
+          <div class="stats-grid">
+            <div class="stat-box" onclick="navigateTo('career-explore')">
+              <div class="stat-emoji">&#127919;</div>
+              <div class="stat-val">Data Analyst</div>
+              <div class="stat-lbl">Posisi Target</div>
+            </div>
+            <div class="stat-box" onclick="navigateTo('skill-gap')">
+              <div class="stat-emoji">&#128202;</div>
+              <div class="stat-val">3 Skills</div>
+              <div class="stat-lbl">Perlu Ditingkatkan</div>
+            </div>
+            <div class="stat-box" onclick="navigateTo('roadmap')">
+              <div class="stat-emoji">&#128506;</div>
+              <div class="stat-val">3 Bulan</div>
+              <div class="stat-lbl">Estimasi Siap</div>
+            </div>
+            <div class="stat-box" onclick="navigateTo('courses')">
+              <div class="stat-emoji">&#128218;</div>
+              <div class="stat-val">12 Kursus</div>
+              <div class="stat-lbl">Direkomendasikan</div>
+            </div>
+          </div>
+          <div class="progress-section">
+            <div class="progress-section-title">Skill Progress</div>
+            <div id="dashSkillProgress"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">&#9889; Langkah Berikutnya</div>
+      <div class="next-steps">
+        <div class="step-card" onclick="navigateTo('career-explore')">
+          <div class="step-num">1</div>
+          <div class="step-icon">&#128269;</div>
+          <div class="step-title">Eksplorasi Posisi Karier</div>
+          <div class="step-desc">Temukan posisi yang sesuai minat & skill-mu</div>
+        </div>
+        <div class="step-card" onclick="navigateTo('cv-upload')">
+          <div class="step-num">2</div>
+          <div class="step-icon">&#128196;</div>
+          <div class="step-title">Upload & Analisis CV</div>
+          <div class="step-desc">Evaluasi kesiapan kariermu secara otomatis</div>
+        </div>
+        <div class="step-card" onclick="navigateTo('skill-gap')">
+          <div class="step-num">3</div>
+          <div class="step-icon">&#128202;</div>
+          <div class="step-title">Lihat Skill Gap</div>
+          <div class="step-desc">Ketahui skill mana yang perlu kamu kembangkan</div>
+        </div>
+        <div class="step-card" onclick="navigateTo('roadmap')">
+          <div class="step-num">4</div>
+          <div class="step-icon">&#128506;</div>
+          <div class="step-title">Buat Roadmap Belajar</div>
+          <div class="step-desc">Susun rencana belajar yang terarah & terstruktur</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAREER EXPLORE -->
+    <div class="page" id="page-career-explore">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">&#128269; Eksplorasi Posisi Karier</h1>
+          <p class="page-subtitle">Jelajahi berbagai posisi karier beserta kualifikasi yang dibutuhkan</p>
+        </div>
+      </div>
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-ico">&#128269;</span>
+          <input id="careerSearch" class="search-input" placeholder="Cari posisi: Data Analyst, Software Engineer..." oninput="filterCareers()" />
+        </div>
+        <div class="chip-row" id="chipRow">
+          <button class="chip active" onclick="filterCategory('all',this)">Semua</button>
+          <button class="chip" onclick="filterCategory('tech',this)">Teknologi</button>
+          <button class="chip" onclick="filterCategory('data',this)">Data & AI</button>
+          <button class="chip" onclick="filterCategory('business',this)">Bisnis</button>
+          <button class="chip" onclick="filterCategory('design',this)">Desain</button>
+          <button class="chip" onclick="filterCategory('engineering',this)">Engineering</button>
+        </div>
+      </div>
+      <div class="career-grid" id="careerGrid"></div>
+      <div class="modal-overlay" id="careerModal" onclick="closeCareerModal(event)">
+        <div class="modal-box" id="careerModalBox"></div>
+      </div>
+    </div>
+
+    <!-- PROFILE MATCHING -->
+    <div class="page" id="page-profile-match">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">&#127919; Profile Matching</h1>
+          <p class="page-subtitle">Bandingkan profilmu dengan requirement posisi karier yang kamu inginkan</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="form-panel glass-panel">
+          <div class="panel-title">Input Profil Kamu</div>
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" id="pm-name" class="form-input" placeholder="e.g. Belva Charissa" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Jurusan / Program Studi</label>
+            <input type="text" id="pm-major" class="form-input" placeholder="e.g. Teknik Informatika" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Semester</label>
+            <select id="pm-semester" class="form-input">
+              <option value="">Pilih semester</option>
+              <option>Semester 3</option><option>Semester 4</option>
+              <option>Semester 5</option><option>Semester 6</option>
+              <option>Semester 7</option><option>Semester 8</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Posisi Karier Target</label>
+            <select id="pm-position" class="form-input">
+              <option value="">Pilih posisi target</option>
+              <option value="data-analyst">Data Analyst</option>
+              <option value="data-scientist">Data Scientist</option>
+              <option value="software-engineer">Software Engineer</option>
+              <option value="product-manager">Product Manager</option>
+              <option value="ux-designer">UX Designer</option>
+              <option value="backend-dev">Backend Developer</option>
+              <option value="ml-engineer">ML Engineer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Skill yang Kamu Miliki</label>
+            <div class="tag-input-area">
+              <div id="skillTags" class="tag-display"></div>
+              <div class="tag-input-row">
+                <input type="text" id="skillInput" class="form-input" placeholder="Ketik skill, tekan Enter..." onkeydown="if(event.key==='Enter')addSkill()" />
+                <button class="btn btn-outline sm" onclick="addSkill()">+ Tambah</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pengalaman / Proyek Relevan</label>
+            <textarea id="pm-exp" class="form-input" rows="3" placeholder="Ceritakan pengalaman atau proyek yang relevan..."></textarea>
+          </div>
+          <button class="btn btn-primary full-w" onclick="runProfileMatch()">&#128202; Analisis Kecocokan</button>
+        </div>
+        <div class="result-panel glass-panel" id="matchResult">
+          <div class="empty-state">
+            <div class="es-icon">&#127919;</div>
+            <div class="es-title">Hasil matching muncul di sini</div>
+            <div class="es-desc">Isi profil kamu dan klik "Analisis Kecocokan"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CV UPLOAD -->
+    <div class="page" id="page-cv-upload">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">&#128196; Upload CV</h1>
+          <p class="page-subtitle">Upload draft CV-mu untuk evaluasi kesiapan karier secara otomatis</p>
+        </div>
+      </div>
+      <div class="upload-layout">
+        <div class="upload-main">
+          <div class="drop-zone" id="dropZone" onclick="document.getElementById('cvFile').click()"
+               ondragover="event.preventDefault();this.classList.add('drag-over')"
+               ondragleave="this.classList.remove('drag-over')"
+               ondrop="handleDrop(event)">
+            <div class="dz-icon">&#128196;</div>
+            <div class="dz-title">Seret &amp; Lepas CV di sini</div>
+            <div class="dz-sub">atau klik untuk pilih file</div>
+            <div class="dz-formats">PDF, DOC, DOCX &bull; Maks. 5MB</div>
+            <input type="file" id="cvFile" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFileSelect(event)" />
+          </div>
+          <div id="uploadProgress" style="display:none" class="upload-progress-panel glass-panel">
+            <div class="up-file-row">
+              <div class="up-file-icon">&#128196;</div>
+              <div class="up-file-info">
+                <div id="upFileName" class="up-fname"></div>
+                <div id="upFileSize" class="up-fsize"></div>
+              </div>
+              <div id="upStatus" class="up-status-icon">&#9728;</div>
+            </div>
+            <div class="progress-bar-thin"><div id="upBar" class="pb-fill"></div></div>
+            <div id="upStatusText" class="up-status-text">Menganalisis CV...</div>
+          </div>
+        </div>
+        <div class="upload-side">
+          <div id="cvInfoPanel" style="display:none" class="cv-info glass-panel">
+            <div class="panel-title">&#10003; CV Terdeteksi</div>
+            <div id="cvExtracted"></div>
+            <button class="btn btn-primary full-w" onclick="navigateTo('skill-gap')">Lanjut ke Analisis Skill Gap &#8594;</button>
+          </div>
+          <div id="uploadTips" class="tips-panel glass-panel">
+            <div class="panel-title">&#128161; Tips Upload CV</div>
+            <ul class="tips-list">
+              <li>Cantumkan <strong>skill teknis</strong> secara eksplisit</li>
+              <li>Sertakan <strong>proyek</strong> dengan teknologi yang dipakai</li>
+              <li>Tambahkan <strong>sertifikasi</strong> yang relevan</li>
+              <li>Format PDF lebih disarankan</li>
+              <li>Data CV <strong>100% privat</strong> &amp; aman</li>
+            </ul>
+            <div class="security-note">&#128274; Keamanan data terjamin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL GAP ANALYSIS -->
+    <div class="page" id="page-skill-gap">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">&#128202; Analisis Skill Gap</h1>
+          <p class="page-subtitle">Evaluasi kesiapan kariermu berdasarkan benchmark industri yang transparan</p>
+        </div>
+        <div class="header-right">
+          <select id="sgPosition" class="form-input compact" onchange="renderSkillGap()">
+            <option value="data-analyst">Data Analyst</option>
+            <option value="data-scientist">Data Scientist</option>
+            <option value="software-engineer">Software Engineer</option>
+            <option value="product-manager">Product Manager</option>
+            <option value="ux-designer">UX Designer</option>
+          </select>
+        </div>
+      </div>
+      <div class="score-banner glass-panel">
+        <div class="sb-left">
+          <div class="sb-score" id="sgScore">68%</div>
+          <div class="sb-label">Career Readiness Score</div>
+          <div class="sb-interp" id="sgInterp">Cukup Siap &mdash; Perlu pengembangan di beberapa area kunci</div>
+        </div>
+        <div class="sb-stats">
+          <div class="sb-stat"><div class="sb-val found" id="sgFound">8</div><div class="sb-lbl">Skill Found</div></div>
+          <div class="sb-stat"><div class="sb-val developing" id="sgDev">4</div><div class="sb-lbl">Developing</div></div>
+          <div class="sb-stat"><div class="sb-val missing" id="sgMiss">3</div><div class="sb-lbl">Not Found</div></div>
+        </div>
+      </div>
+      <div id="skillCategories" class="skill-cats"></div>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="page" id="page-roadmap">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">&#128506; Roadmap Belajar</h1>
+          <p class="page-subtitle">Rencana pengembangan skill terstruktur menuju target kariermu</p>
+        </div>
+        <button class="btn btn-primary" onclick="renderRoadmap()">&#8635; Perbarui Roadmap</button>
+      </div>
+      <div class="roadmap-meta glass-panel">
+        <div class="rm-item"><span class="rm-lbl">Target Posisi</span><span class="rm-val">&#127919; Data Analyst</span></div>
+        <div class="rm-item"><span class="rm-lbl">Estimasi Durasi</span><span class="rm-val">&#128336; 3 Bulan</span></div>
+        <div class="rm-item"><span class="rm-lbl">Skill Diprioritaskan</span><span class="rm-val" id="rmSkillCount">3 Skill</span></div>
+      </div>
+      <div class="priority-picker">
+        <div class="section-title">Pilih Prioritas Skill</div>
+        <div id="prioritySkills" class="priority-grid"></div>
+      </div>
+      <div id="roadmapTimeline" class="roadmap-timeline"></div>
+    </div>
+
+    <!-- COURSES -->
+    <div class="page" id="page-courses">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">&#128218; Rekomendasi Kursus</h1>
+          <p class="page-subtitle">Sumber belajar terpersonalisasi sesuai skill gap dan budget kamu</p>
+        </div>
+      </div>
+      <div class="course-filters glass-panel">
+        <div class="cf-group">
+          <label class="cf-label">Skill</label>
+          <select id="cfSkill" class="form-input compact" onchange="filterCourses()">
+            <option value="all">Semua Skill</option>
+            <option value="python">Python</option>
+            <option value="sql">SQL</option>
+            <option value="ml">Machine Learning</option>
+            <option value="dataviz">Data Visualization</option>
+            <option value="statistics">Statistics</option>
+            <option value="figma">Figma</option>
+            <option value="java">Java</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Budget</label>
+          <select id="cfBudget" class="form-input compact" onchange="filterCourses()">
+            <option value="all">Semua Budget</option>
+            <option value="free">Gratis</option>
+            <option value="low">Di bawah Rp 200rb</option>
+            <option value="mid">Rp 200rb &ndash; 500rb</option>
+            <option value="high">Di atas Rp 500rb</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Level</label>
+          <select id="cfLevel" class="form-input compact" onchange="filterCourses()">
+            <option value="all">Semua Level</option>
+            <option value="beginner">Pemula</option>
+            <option value="intermediate">Menengah</option>
+            <option value="advanced">Lanjutan</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Platform</label>
+          <select id="cfPlatform" class="form-input compact" onchange="filterCourses()">
+            <option value="all">Semua Platform</option>
+            <option value="dicoding">Dicoding</option>
+            <option value="coursera">Coursera</option>
+            <option value="udemy">Udemy</option>
+            <option value="bangkit">Bangkit</option>
+            <option value="youtube">YouTube</option>
+          </select>
+        </div>
+      </div>
+      <div class="course-count" id="courseCount"></div>
+      <div class="course-grid" id="courseGrid"></div>
+    </div>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
